@@ -1,4 +1,6 @@
 using DTO.U20180744.Data;
+using DTO.U20180744.Data.Interfaces;
+using DTO.U20180744.Data.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -24,6 +26,10 @@ namespace DTO.U20180744.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            services.AddScoped<IMateriaRepository, MateriaRespository>();
+            services.AddScoped<IAlumnoRepository, AlumnoRespository>();
+            services.AddScoped<INotasRepository, NotasRepository>();
             services.AddDbContext<ApplicationDbContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddRazorPages();
         }

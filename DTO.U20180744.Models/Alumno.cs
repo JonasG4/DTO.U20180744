@@ -4,9 +4,8 @@ using System.Text;
 
 namespace DTO.U20180744.Models
 {
-    public class Alumno
+    public class Alumno : EntityBase
     {
-        public String Id { get; set; }
         public String Nombres { get; set; }
         public String Apelllidos { get; set; }
         public int Edad { get; set; }

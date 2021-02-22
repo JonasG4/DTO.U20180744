@@ -1,0 +1,37 @@
+﻿@page
+@model DTO.U20180744.Web.Pages.AlumnoPage.AlumnoModel
+@{
+}
+
+<h1>Listado de Alumnos</h1>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>Edad</th>
+            <th>Carrera</th>
+            <th>Opciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Alumnos)
+        {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Nombres</td>
+            <td>@item.Apelllidos</td>
+            <td>@item.Edad</td>
+            <td>@item.Carrera</td>
+            <td>
+                <a class="btn btn-sm btn-info" asp-area="" asp-page="/Alumno/Editar" asp-route-id="@item.Id">Editar</a>
+                <a class="btn btn-sm btn-info" asp-area="" asp-page="/Alumno/Eliminar" asp-route-id="@item.Id">Eliminar</a>
+            </td>
+
+        </tr>
+        }
+    </tbody>
+
+</table>

@@ -5,10 +5,9 @@ using System.Text;
 
 namespace DTO.U20180744.Models
 {
-    public class Notas
+    public class Notas : EntityBase
     {
         [Required]
-        public String Id { get; set; }
         public String IdMateria { get; set; }
         public Materia Materia { get; set; }
         public String IdAlumno { get; set; }
